@@ -1,0 +1,23 @@
+package program;
+import org.openqa.selenium.By;
+public class selenium{
+  public static void main(string[]args)
+{
+system.setProperty("webdriver.chrome.driver","C:\\chromedriver_win32\\chromedriver.exe");
+WebDriver d=new ChromeDriver();
+d.get("https//www.uniteliving.com");
+d.findElement(By.id("session_key")).sendKeys("Name");
+d.findElement(By.id("session_key")).sendKeys("Email");
+d.findElement(By.id("session_password")).sendKeys("password");
+d.findElement(By.id("session_password")).sendKeys("confirmpassword");
+d.findElement(By.xpath("//*[@id=\"main-content\"]/section[1]/div[2]/form/button")).click();
+String u=d.getCurrentUrl();
+if(u.equals("https://partnerforsqa.dev.uniteliving.com"))
+{
+System.out.printIn("Test Case Passed");
+}
+else
+{
+System.out.printIn("Test Case Failed");
+}
+d.close();
